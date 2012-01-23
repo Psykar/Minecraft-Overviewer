@@ -3072,3 +3072,10 @@ def end_porta_frame(blockid, data):
 
 # end stone
 block(blockid=121, top_index=175)
+
+# Start redpower2 blocks
+@material(blockid=182, data=range(5), transparent=False, solid=True)
+def redPowerBlocks(blockid, data):
+    t = terrain_images[100]
+    img = build_full_block(t,None,None,t,t)
+    return img

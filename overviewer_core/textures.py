@@ -3073,9 +3073,57 @@ def end_porta_frame(blockid, data):
 # end stone
 block(blockid=121, top_index=175)
 
+#========================
 # Start redpower2 blocks
+#========================
+
+# Marble / Basalt
 @material(blockid=182, data=range(5), transparent=False, solid=True)
 def redPowerBlocks(blockid, data):
+    if data == 0: # marble
+        t = terrain_images[72]
+    if data == 1: # basalt
+        t = terrain_images[37]
+    if data == 2: # marble brick
+        t = terrain_images[54]
+    if data == 3: # basalt cobblestone
+        t = terrain_images[101]
+    if data == 4: # basalt brick
+        t = terrain_images[37]
+
+    img = build_full_block(t,None,None,t,t)
+    return img
+
+# Crops (flax)
+@material(blockid=184, data=range(1), transparent=True)
+def redPowerCrops(blockid, data):
+    t = terrain_images[73]
+    return build_sprite(t)
+
+# Leaves
+@material(blockid=181, data=range(16), transparent=True, solid=True)
+def redPowerLeaves(blockid, data):
+    t = terrain_images[52]
+    return build_block(t,t)
+
+# Logs
+@material(blockid=183, data=range(2), transparent=False, solid=True)
+def redPowerLogs(blockid, data):
+    return build_block(terrain_images[21], terrain_images[20])
+
+# Plants Indigo / Rubber sappling
+@material(blockid=179, data=range(2), transparent=True)
+def redPowerPlants(blockid, data):
+    tex = ''
+    if data == 0:
+        tex = terrain_images[63]
+    if data == 1:
+        tex = terrain_images[79]
+    return build_sprite(tex)
+
+# Ore
+@material(blockid=180, data=range(8), transparent=False, solid=True)
+def redPowerOre(blockid, data):
     t = terrain_images[100]
     img = build_full_block(t,None,None,t,t)
     return img
